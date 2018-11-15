@@ -1,4 +1,4 @@
-exportPattern("^[[:alpha:]]+")
+export(ConleySEs)
 useDynLib('conleyerrors', .registration = TRUE)
 importFrom('Rcpp', 'sourceCpp')
 import(data.table)
