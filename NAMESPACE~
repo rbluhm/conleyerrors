@@ -1,0 +1,4 @@
+exportPattern("^[[:alpha:]]+")
+useDynLib('conley', .registration = TRUE)
+importFrom('Rcpp', 'sourceCpp')
+import(data.table)
