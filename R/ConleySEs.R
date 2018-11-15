@@ -83,7 +83,7 @@ ConleySEs <- function(reg,
                  sub_index = t,
                  type = "spatial",
                  cutoff = dist_cutoff,
-                 balanced_pnl = balanced_pnl,
+                 balanced_pnl = balanced_pnl, d=d,
                  kernel = kernel,
                  dist_fn = dist_fn,
                  verbose = verbose)},
@@ -94,7 +94,7 @@ ConleySEs <- function(reg,
                  sub_index = t,
                  type = "spatial",
                  cutoff = dist_cutoff,
-                 balanced_pnl = balanced_pnl,
+                 balanced_pnl = balanced_pnl, d=d,
                  kernel = kernel,
                  dist_fn = dist_fn,
                  verbose = verbose)
@@ -152,7 +152,7 @@ ConleySEs <- function(reg,
   return(V_spatial_HAC)
 }
 
-iterateObs <- function(dt, Xvars, sub_index, type, cutoff, balanced_pnl,
+iterateObs <- function(dt, Xvars, sub_index, type, cutoff, balanced_pnl, d=NULL,
                        verbose, kernel, dist_fn) {
   k <- length(Xvars)
   if (type == "spatial" & balanced_pnl) {
