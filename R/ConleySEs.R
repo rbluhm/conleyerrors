@@ -152,8 +152,8 @@ ConleySEs <- function(reg,
   return(V_spatial_HAC)
 }
 
-iterateObs <- function(dt, Xvars, sub_index, type, cutoff, balanced_pnl, d,
-                       verbose, kernel, dist_fn) {
+# lets try this once more
+iterateObs <- function(dt, Xvars, sub_index, type, cutoff, balanced_pnl, d, verbose, kernel, dist_fn) {
   k <- length(Xvars)
   if (type == "spatial" & balanced_pnl) {
     sub_dt <- dt[time == sub_index]
