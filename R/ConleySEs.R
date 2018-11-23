@@ -187,8 +187,11 @@ iterateObs <- function(dt, Xvars, sub_index, type, cutoff, balanced_pnl, d, verb
       XeeXhs <- XeeXhC(cbind(lat, lon), cutoff, X, e, n1, k,
                        kernel, dist_fn)
     } else {
-      XeeXhs <- XeeXhC_Lg(cbind(lat, lon), cutoff, X, e, n1, k,
-                          kernel, dist_fn)
+      ### dis don't work for some reason---XeeXhC_Lg---figure this out later
+     ## XeeXhs <- XeeXhC_Lg(cbind(lat, lon), cutoff, X, e, n1, k,
+     ##                     kernel, dist_fn)
+      XeeXhs <- XeeXhC(cbind(lat, lon), cutoff, X, e, n1, k,
+                       kernel, dist_fn)
     }
 
   } else if (type == "serial") {
