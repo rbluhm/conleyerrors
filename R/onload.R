@@ -3,5 +3,5 @@
 }
 
 .onUnload <- function (libpath) {
-  library.dynam.unload("conley", libpath)
+  library.dynam.unload("conleyerrors", libpath)
 }
