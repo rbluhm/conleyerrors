@@ -152,7 +152,7 @@ ConleySEs <- function(reg,
   return(V_spatial_HAC)
 }
 
-iterateObs <- function(dt, Xvars, sub_index, type, cutoff, balanced_pnl, d=NULL,
+iterateObs <- function(dt, Xvars, sub_index, type, cutoff, balanced_pnl, d,
                        verbose, kernel, dist_fn) {
   k <- length(Xvars)
   if (type == "spatial" & balanced_pnl) {
