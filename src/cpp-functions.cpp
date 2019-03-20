@@ -190,7 +190,8 @@ arma::mat XeeXhC_Lg(arma::mat M, double cutoff,
   arma::mat XeeXh(k, k, fill::zeros);
 
   for( long long int i = 0; i < nrow; i++ ){
-    arma::vec d_row(nrow);
+   // arma::vec d_row(nrow);
+    arma::mat d_row(1, nrow, fill::ones);
 
     for( long long int j = 0; j < nrow; j++ ){
       double d;
@@ -215,12 +216,14 @@ arma::mat XeeXhC_Lg(arma::mat M, double cutoff,
 
     arma::mat k_mat(k, 1, fill::ones);
 
-    d_row %= e;
+    d_row %= e.t();
 
-    arma::mat X_row(1, k, fill::ones);
-    X_row %= X.row(i);
+    arma::mat X_row(k, 1, fill::ones);
+    X_row %= X.row(i).t();
 
-    XeeXh += (X_row * e_mat % (k_mat * d_row.t())) * X;
+    XeeXh += (X_row * e_mat % (k_mat * d_row)) * X;
+
+    //XeeXh += (X_row * e_mat % (k_mat * d_row.t())) * X;
   }
 
   return XeeXh;

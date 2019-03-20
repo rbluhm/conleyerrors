@@ -182,16 +182,14 @@ iterateObs <- function(dt, Xvars, sub_index, type, cutoff, balanced_pnl, d, verb
     lon <- sub_dt[, lon]
 
     # If n1 >= 50k obs, then avoiding construction of distance matrix.
-    # This requires more operations, but is less memory intensive.
+    # This requires more operations, but is MUCH less memory intensive.
     if (n1 < 5 * 10 ^ 4) {
       XeeXhs <- XeeXhC(cbind(lat, lon), cutoff, X, e, n1, k,
                        kernel, dist_fn)
     } else {
-      ### dis don't work for some reason---XeeXhC_Lg---figure this out later
-     ## XeeXhs <- XeeXhC_Lg(cbind(lat, lon), cutoff, X, e, n1, k,
-     ##                     kernel, dist_fn)
-      XeeXhs <- XeeXhC(cbind(lat, lon), cutoff, X, e, n1, k,
-                       kernel, dist_fn)
+     ## fixed large computation
+     XeeXhs <- XeeXhC_Lg(cbind(lat, lon), cutoff, X, e, n1, k,
+                          kernel, dist_fn)
     }
 
   } else if (type == "serial") {
